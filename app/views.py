@@ -3,12 +3,7 @@ from .models import Categories, Photo
 
 
 def gallery(request):
-    category = request.GET.get('category')
-    
-    if category == None:
-        photos = Photo.objects.all()
-    else:
-        photos = Photo.objects.filter(category__name = category)    
+    photos = Photo.objects.all()    
 
     categories = Categories.objects.all()
     context = {'categories':categories, 'photos': photos}
