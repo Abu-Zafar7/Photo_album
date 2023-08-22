@@ -43,3 +43,9 @@ def addPhoto(request):
         return redirect('gallery')
     context = {"categories":categories}
     return render(request, 'app/add.html',context)
+
+
+def viewCat(request,pk):
+    category = Categories.objects.get(id= pk)
+    photos = Photo.objects.filter(category__name = category)
+    return render(request, 'app/category.html',{'category':category, 'photos': photos})

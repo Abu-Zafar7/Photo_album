@@ -24,7 +24,7 @@
                     <ul class="list-group list-group-flush">
                         {% for category in categories%}
                       <li class="list-group-item">
-                        <a href="{% url 'gallery' %}?category={{category.name}}">{{ category.name }}</a>
+                        <a href="{% url 'category' category.id %}">{{ category.name }}</a>
                       </li>
                         {% endfor %}
                     </ul>
